@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
+
+	<display-name>GestionFinanciera</display-name>
+
+	<!-- Change to "Production" when you are ready to deploy -->
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Production</param-value>
+	</context-param>
+
+
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+
+	<!-- <session-config> -->
+	<!-- <session-timeout>30</session-timeout> -->
+	<!-- </session-config> -->
+
+	<!-- Intentos Arreglo session caducada -->
+	<context-param>
+		<param-name>org.ajax4jsf.handleViewExpiredOnClient</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>com.sun.faces.enableRestoreView11Compatibility
+		</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+
+	<context-param>
+		<param-name>com.sun.faces.numberOfViewsInSession</param-name>
+		<param-value>500</param-value>
+	</context-param>
+	<context-param>
+		<param-name>com.sun.faces.numberOfLogicalViews</param-name>
+		<param-value>500</param-value>
+	</context-param>
+
+
+	<context-param>
+		<param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<!-- Welcome page -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<!-- JSF mapping -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>javax.ws.rs.core.Application</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- <servlet> -->
+	<!-- <servlet-name>ServletAdaptor</servlet-name> -->
+	<!-- <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> -->
+	<!-- <load-on-startup>1</load-on-startup> -->
+	<!-- </servlet> -->
+
+	<!-- Map these files with JSF -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>Faces Servlet</servlet-name> -->
+	<!-- <url-pattern>*.html</url-pattern> -->
+	<!-- </servlet-mapping> -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>Faces Servlet</servlet-name> -->
+	<!-- <url-pattern>*.jsf</url-pattern> -->
+	<!-- </servlet-mapping> -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>Faces Servlet</servlet-name> -->
+	<!-- <url-pattern>*.faces</url-pattern> -->
+	<!-- </servlet-mapping> -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>Faces Servlet</servlet-name> -->
+	<!-- <url-pattern>*.html</url-pattern> -->
+	<!-- </servlet-mapping> -->
+	<!-- <context-param> -->
+	<!-- <param-name>primefaces.THEME</param-name> -->
+	<!-- <param-value>delta</param-value> -->
+	<!-- </context-param> -->
+
+
+	<!-- Este parametro es para el tiempo en horas AM:PM segun la ubicacion 
+		del servidor -->
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE
+		</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- Este parametro es para el separador de los Ids de los elementos primefaces, 
+		para que no sea : si no un guion (-) este separador se puede modificar a 
+		placer. -->
+	<context-param>
+		<param-name>javax.faces.SEPARATOR_CHAR</param-name>
+		<param-value>-</param-value>
+	</context-param>
+
+	<!-- <mime-mapping> -->
+	<!-- <extension>xml</extension> -->
+	<!-- <mime-type>application/xml</mime-type> -->
+	<!-- </mime-mapping> -->
+
+	<!-- Login filter <filter> <filter-name>AuthFilter</filter-name> <filter-class>com.gcorrespondencia.util.AuthFilter</filter-class> 
+		</filter> -->
+	<!-- Set the login filter to secure all the pages in the /secured/* path 
+		of the application <filter-mapping> <filter-name>AuthFilter</filter-name> 
+		<url-pattern>/catalogos/*</url-pattern> <url-pattern>/empleados/*</url-pattern> 
+		<url-pattern>/envio/*</url-pattern> <url-pattern>/planillas/*</url-pattern> 
+		<url-pattern>/usuarios/*</url-pattern> <url-pattern>/secured/*</url-pattern> 
+		</filter-mapping> -->
+
+</web-app>

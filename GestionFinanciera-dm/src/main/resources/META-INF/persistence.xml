@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="GestionVuelosPU"
+		transaction-type="JTA">
+		
+		<jta-data-source>java:/gvuelos</jta-data-source>
+		<class>com.gfinanciera.entidades.Aerolina</class>
+		<class>com.gfinanciera.entidades.Cliente</class>
+		<class>com.gfinanciera.entidades.Departamento</class>
+		<class>com.gfinanciera.entidades.Estado</class>
+		<class>com.gfinanciera.entidades.Municipio</class>
+		<class>com.gfinanciera.entidades.TipoIdentificacion</class>
+		<class>com.gfinanciera.entidades.Vuelo</class>
+
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.connection.CharSet" value="utf8" />
+			<property name="hibernate.connection.characterEncoding"
+				value="utf8" />
+			<property name="hibernate.connection.useUnicode" value="utf8" />
+		</properties>
+	</persistence-unit>
+</persistence>

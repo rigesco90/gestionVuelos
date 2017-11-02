@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.rcampo</groupId>
+    <artifactId>GestionFinanciera</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>GestionFinanciera-ear</artifactId>
+  <packaging>ear</packaging>
+  <name>${name.project}-ear</name>
+  
+  <developers>
+		<developer>
+			<id>RCAMPO</id>
+			<name>Ing. Rigo Esleider Campo Ordoñez</name>
+			<email>ESLEIDER.CAMPO@gmail.com</email>
+		</developer>
+	</developers>
+	
+	<dependencies>
+		<!-- Internal Application Dependencies -->
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-ejb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-dm</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-bo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	
+		<build>
+		<finalName>${name.project}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<applicationName>${name.project}</applicationName>
+					<displayName>${name.project}</displayName>
+					<modules>
+						<ejbModule>
+							<artifactId>${name.project}-ejb</artifactId>
+							<groupId>${group.id.project}</groupId>
+						</ejbModule>
+						<jarModule>
+							<artifactId>${name.project}-dm</artifactId>
+							<groupId>${group.id.project}</groupId>
+						</jarModule>
+						<jarModule>
+							<artifactId>${name.project}-bo</artifactId>
+							<groupId>${group.id.project}</groupId>
+						</jarModule>
+						<jarModule>
+							<artifactId>${name.project}-dao</artifactId>
+							<groupId>${group.id.project}</groupId>
+						</jarModule>
+						<jarModule>
+							<artifactId>${name.project}-commons</artifactId>
+							<groupId>${group.id.project}</groupId>
+						</jarModule>
+						<webModule>
+							<artifactId>${name.project}-web</artifactId>
+							<groupId>${group.id.project}</groupId>
+							<contextRoot>/</contextRoot>
+						</webModule>
+					</modules>
+					<generateApplicationXml>true</generateApplicationXml>
+					<!-- The following setting builds the EAR file in a format suitable 
+						for Glassfish deployment. With this we don't have to copy the libs into Glassfish's 
+						appserver lib directory -->
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

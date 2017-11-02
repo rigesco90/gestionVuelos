@@ -1,0 +1,4 @@
+com\gfinanciera\dao\GenericDAO.class
+com\gfinanciera\dao\impl\GenericDAOJPAImpl.class
+com\gfinanciera\dao\impl\ReservaVueloDAOImpl.class
+com\gfinanciera\dao\ReservaVueloDAO.class

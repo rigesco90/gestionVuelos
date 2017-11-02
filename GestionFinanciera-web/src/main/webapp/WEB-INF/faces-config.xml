@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<application>
+	</application>
+	<!--  
+	<converter>
+		<converter-id>dinamizadorConverter</converter-id>
+		<converter-class>com.gcorrespondencia.util.DinamizadorConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConvertAutocomplete</converter-id>
+		<converter-class>com.gcorrespondencia.util.ConvertAutocomplete</converter-class>
+	</converter>
+	<converter>
+		<converter-id>SelectManyConverter</converter-id>
+		<converter-class>com.gcorrespondencia.util.SelectManyConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConvertEntity</converter-id>
+		<converter-class>com.gcorrespondencia.util.ConvertEntity</converter-class>
+	</converter>
+	-->
+
+	
+</faces-config>

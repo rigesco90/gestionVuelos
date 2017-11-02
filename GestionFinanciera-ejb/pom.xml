@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.rcampo</groupId>
+		<artifactId>GestionFinanciera</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>GestionFinanciera-ejb</artifactId>
+
+	<name>${name.project}-ejb</name>
+
+	<developers>
+		<developer>
+			<id>RCAMPO</id>
+			<name>Ing. Rigo Esleider Campo Ordoñez</name>
+			<email>ESLEIDER.CAMPO@gmail.com</email>
+		</developer>
+	</developers>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+
+		<!-- Api Java EE Dependency -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Internal Application Dependencies -->
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-dm</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.rcampo</groupId>
+			<artifactId>GestionFinanciera-bo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
