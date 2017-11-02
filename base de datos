@@ -1,0 +1,290 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 02-11-2017 a las 01:57:45
+-- Versión del servidor: 5.6.12-log
+-- Versión de PHP: 5.4.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de datos: `gestionvuelos`
+--
+CREATE DATABASE IF NOT EXISTS `gestionvuelos` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gestionvuelos`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `aerolina`
+--
+
+CREATE TABLE IF NOT EXISTS `aerolina` (
+  `idAerolina` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(45) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idAerolina`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `aerolina`
+--
+
+INSERT INTO `aerolina` (`idAerolina`, `codigo`, `nombre`) VALUES
+(1, 'AV', 'AVIANCA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente`
+--
+
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `idcliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(45) NOT NULL,
+  `apellidos` varchar(45) NOT NULL,
+  `direccion` varchar(45) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `TIPO_IDENTIFICACION_idTIPO_IDENTIFICACION` int(11) NOT NULL,
+  `IDENTIFICACION` varchar(15) NOT NULL,
+  PRIMARY KEY (`idcliente`),
+  KEY `FKTIPO_IDENTIFICACION_idTIPO_IDENTIFICACION` (`TIPO_IDENTIFICACION_idTIPO_IDENTIFICACION`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`idcliente`, `nombres`, `apellidos`, `direccion`, `telefono`, `TIPO_IDENTIFICACION_idTIPO_IDENTIFICACION`, `IDENTIFICACION`) VALUES
+(1, 'RIGO ESLEIDER', 'CAMPO ORDOÑEZ', 'EL ARADO', '3012180172', 3, '1063810506'),
+(2, 'CLAUDIA JIMENA ', 'BEDOYA CONSTAIN', 'EL ARADO', '3012180172', 3, '34322036'),
+(3, 'DAVID SANTIAGO', 'CAMPO ORDOÑEZ', 'LAS CRUCES', '3143625987', 3, '1063598745'),
+(4, 'DANNA ISABELLA', 'CAMPO BEDOYA', 'EL ARADO', '3012180172', 3, '123658974'),
+(5, 'SANTIAGO', 'MUÑOZ BEDOYA', 'EL ARADO', '3012548796', 3, '6352149874'),
+(6, 'JUAN ANDRES', 'PAZ CRUZ', 'TIMBIO', '6549874', 3, '3216548745'),
+(7, 'HENRRY', 'RUIZ', 'EL RECUERDO', '301256987', 3, '3265987415'),
+(8, 'MARIA ALEJANDRA', 'BARBOSA PAZ', 'LA PAZ', '3012548660', 3, '6598745896'),
+(9, 'DANIELA', 'VILLAQUIRAN', 'LA ESMERALDA', '6985478412', 3, '6598741256'),
+(10, 'FELIPE ALEJANDRO', 'MENESES URIBE', 'LAS CRUCES', '3052857496', 4, '5241874562');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `departamento`
+--
+
+CREATE TABLE IF NOT EXISTS `departamento` (
+  `iddepartamento` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(45) NOT NULL,
+  `descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`iddepartamento`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+
+--
+-- Volcado de datos para la tabla `departamento`
+--
+
+INSERT INTO `departamento` (`iddepartamento`, `codigo`, `descripcion`) VALUES
+(1, 'AMAZ', 'AMAZONAS'),
+(2, 'ANT', 'ANTIOQUIA'),
+(3, 'ARA', 'ARAUCA'),
+(4, 'ATL', 'ATLÁNTICO'),
+(5, 'BOL', 'BOLÍVAR'),
+(6, 'BOY', 'BOYACÁ'),
+(7, 'CAL', 'CALDAS'),
+(8, 'CAQ', 'CAQUETÁ'),
+(9, 'CAS', 'CASANARE'),
+(10, 'CAU', 'CAUCA'),
+(11, 'CES', 'CESAR'),
+(12, 'CHOC', 'CHOCÓ'),
+(13, 'COR', 'CÓRDOBA'),
+(14, 'CUN', 'CUNDINAMARCA'),
+(15, 'GUA', 'GUAINÍA'),
+(16, 'GUAV', 'GUAVIARE'),
+(17, 'HUI', 'HUILA'),
+(18, 'GUAJ', 'LA GUAJIRA'),
+(19, 'MAG', 'MAGDALENA'),
+(20, 'MET', 'META'),
+(21, 'NAR', 'NARIÑO'),
+(22, 'NSDER', 'NORTE DE SANTAN'),
+(23, 'PUT', 'PUTUMAYO'),
+(24, 'QUIN', 'QUINDÍO'),
+(25, 'RIS', 'RISARALDA'),
+(26, 'SANDP', 'SAN ANDRÉS Y PROVIDENCIA'),
+(27, 'SDER', 'SANTANDER'),
+(28, 'SUC', 'SUCRE'),
+(29, 'TOL', 'TOLIMA'),
+(30, 'VCAU', 'VALLE DEL CAUCA'),
+(31, 'VAU', 'VAUPÉS'),
+(32, 'VICH', 'VICHADA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE IF NOT EXISTS `estado` (
+  `idestado` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(45) NOT NULL,
+  `descripcion` varchar(45) NOT NULL,
+  PRIMARY KEY (`idestado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`idestado`, `codigo`, `descripcion`) VALUES
+(1, 'RESERVADO', 'RESERVADO'),
+(2, 'UTILIZADO', 'UTILIZADO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `municipio`
+--
+
+CREATE TABLE IF NOT EXISTS `municipio` (
+  `idmunicipio` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(45) NOT NULL,
+  `descripcion` varchar(45) NOT NULL,
+  `departamento_iddepartamento` int(11) NOT NULL,
+  PRIMARY KEY (`idmunicipio`),
+  KEY `fk_municipio_departamento_idx` (`departamento_iddepartamento`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+--
+-- Volcado de datos para la tabla `municipio`
+--
+
+INSERT INTO `municipio` (`idmunicipio`, `codigo`, `descripcion`, `departamento_iddepartamento`) VALUES
+(1, '', 'EL ENCANTO', 1),
+(2, '', 'LA CHORRERA', 1),
+(3, '', 'LA PEDRERA', 1),
+(4, '', 'LA VICTORIA', 1),
+(5, '', 'LETICIA', 1),
+(6, '', 'MIRITI', 1),
+(7, '', 'PUERTO ALEGRIA', 1),
+(8, '', 'PUERTO ARICA', 1),
+(9, '', 'PUERTO NARIÑO', 1),
+(10, '', 'PUERTO SANTANDER', 1),
+(11, '', 'TURAPACA', 1),
+(12, '', 'ABEJORRAL', 2),
+(13, '', 'ABRIAQUI', 2),
+(14, '', 'ALEJANDRIA', 2),
+(15, '', 'AMAGA', 2),
+(16, '', 'AMALFI', 2),
+(17, '', 'ANDES', 2),
+(18, '', 'ANGELOPOLIS', 2),
+(19, '', 'ANGOSTURA', 2),
+(20, '', 'ANORI', 2),
+(21, '', 'ANTIOQUIA', 2),
+(22, '', 'ANZA', 2),
+(23, '', 'APARTADO', 2),
+(24, '', 'ARBOLETES', 2),
+(25, '', 'ARGELIA', 2),
+(26, '', 'ARMENIA', 2),
+(27, '', 'BARBOSA', 2),
+(28, '', 'BELLO', 2),
+(29, '', 'BELMIRA', 2),
+(30, '', 'BETANIA', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_identificacion`
+--
+
+CREATE TABLE IF NOT EXISTS `tipo_identificacion` (
+  `idTIPO_IDENTIFICACION` int(11) NOT NULL AUTO_INCREMENT,
+  `CODIGO` varchar(45) NOT NULL,
+  `DESCRIPCION` varchar(45) NOT NULL,
+  PRIMARY KEY (`idTIPO_IDENTIFICACION`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `tipo_identificacion`
+--
+
+INSERT INTO `tipo_identificacion` (`idTIPO_IDENTIFICACION`, `CODIGO`, `DESCRIPCION`) VALUES
+(1, 'RC', 'REGISTRO CIVIL'),
+(2, 'TI', 'TARJETA DE IDENTIDAD'),
+(3, 'CC', 'CÉDULA DE CIUDADAÍA'),
+(4, 'CE', 'CÉDULA DE EXTRANJERIA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vuelo`
+--
+
+CREATE TABLE IF NOT EXISTS `vuelo` (
+  `idvuelo` int(11) NOT NULL AUTO_INCREMENT,
+  `valor` double NOT NULL,
+  `FECHA_SALIDA` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `FECHA_LLEGADA` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000',
+  `municipio_idmunicipio_origen` int(11) NOT NULL,
+  `municipio_idmunicipio_destino` int(11) NOT NULL,
+  `Aerolina_idAerolina` int(11) NOT NULL,
+  `cliente_idcliente` int(11) NOT NULL,
+  `estado_idestado` int(11) NOT NULL,
+  PRIMARY KEY (`idvuelo`),
+  KEY `fk_vuelo_municipio1_idx` (`municipio_idmunicipio_origen`),
+  KEY `fk_vuelo_municipio2_idx` (`municipio_idmunicipio_destino`),
+  KEY `fk_vuelo_Aerolina1_idx` (`Aerolina_idAerolina`),
+  KEY `fk_vuelo_cliente1_idx` (`cliente_idcliente`),
+  KEY `fk_vuelo_estado1_idx` (`estado_idestado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `vuelo`
+--
+
+INSERT INTO `vuelo` (`idvuelo`, `valor`, `FECHA_SALIDA`, `FECHA_LLEGADA`, `municipio_idmunicipio_origen`, `municipio_idmunicipio_destino`, `Aerolina_idAerolina`, `cliente_idcliente`, `estado_idestado`) VALUES
+(1, 250000, '2017-11-01 05:00:00.000000', '2017-11-01 14:27:21.000000', 30, 8, 1, 1, 1),
+(2, 654874, '2017-10-04 05:00:00.000000', '2017-11-16 05:00:00.000000', 3, 13, 1, 2, 2),
+(3, 658412, '2017-10-04 05:00:00.000000', '2017-11-08 05:00:00.000000', 3, 10, 1, 3, 1),
+(4, 65254, '2017-11-09 05:00:00.000000', '2017-11-09 05:00:00.000000', 3, 4, 1, 4, 1),
+(5, 698574, '2017-10-03 05:00:00.000000', '2017-11-22 05:00:00.000000', 11, 8, 1, 5, 2),
+(6, 458796, '2017-11-01 05:00:00.000000', '2017-11-30 05:00:00.000000', 10, 16, 1, 6, 1),
+(7, 1236548, '2017-11-01 05:00:00.000000', '2017-11-23 05:00:00.000000', 4, 2, 1, 7, 2);
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`TIPO_IDENTIFICACION_idTIPO_IDENTIFICACION`) REFERENCES `departamento` (`iddepartamento`);
+
+--
+-- Filtros para la tabla `municipio`
+--
+ALTER TABLE `municipio`
+  ADD CONSTRAINT `municipio_ibfk_1` FOREIGN KEY (`departamento_iddepartamento`) REFERENCES `departamento` (`iddepartamento`);
+
+--
+-- Filtros para la tabla `vuelo`
+--
+ALTER TABLE `vuelo`
+  ADD CONSTRAINT `fk_vuelo_Aerolina1` FOREIGN KEY (`Aerolina_idAerolina`) REFERENCES `aerolina` (`idAerolina`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vuelo_cliente1` FOREIGN KEY (`cliente_idcliente`) REFERENCES `cliente` (`idcliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vuelo_estado1` FOREIGN KEY (`estado_idestado`) REFERENCES `estado` (`idestado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vuelo_municipio1` FOREIGN KEY (`municipio_idmunicipio_origen`) REFERENCES `municipio` (`idmunicipio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vuelo_municipio2` FOREIGN KEY (`municipio_idmunicipio_destino`) REFERENCES `municipio` (`idmunicipio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
